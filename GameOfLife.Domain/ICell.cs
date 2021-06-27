@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace GameOfLife.Domain
 {
-    interface ICell
+    public interface ICell
     {
-        public List<ICell> Neighbors { get; set; }
+        public HashSet<Point> Neighbors { get; }
+        public Point Point { get; }
     }
 }
