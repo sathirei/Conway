@@ -31,7 +31,7 @@ namespace GameOfLife.Domain
 
         public override string ToString()
         {
-            return $"({this.XPosition}, {this.YPosition})";
+            return $"({this.XPosition},{this.YPosition})";
         }
     }
 }

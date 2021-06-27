@@ -1,24 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>.NETCoreApp,Version=v3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="IO\TestInput\invalidInput.txt" />
-    <None Remove="IO\TestInput\validInput.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="IO\TestInput\invalidInput.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="IO\TestInput\validInput.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
@@ -32,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GameOfLife.Core\GameOfLife.Core.csproj" />
+    <ProjectReference Include="..\GameOfLife.App\GameOfLife.App.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace GameOfLife.Core.IO
@@ -8,7 +8,20 @@ namespace GameOfLife.Core.IO
     {
         public void Write(IUniverse universe)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(Format(universe));
+        }
+
+        private static string Format(IUniverse universe)
+        {
+            var sortedLivingCells = universe.LivingCells
+                .OrderBy(x => x.Point.XPosition)
+                .ThenBy(y => y.Point.YPosition)
+                .Select(x => x.ToString());
+            var sb = new StringBuilder();
+            sb.Append("[");
+            sb.Append(string.Join(", ", sortedLivingCells));
+            sb.Append("]");
+            return sb.ToString();
         }
     }
 }

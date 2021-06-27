@@ -58,7 +58,7 @@ namespace GameOfLife.Domain.Tests
             var result = point.ToString();
 
             // Asserts
-            result.Should().Be("(1, 2)");
+            result.Should().Be("(1,2)");
         }
 
         [Fact()]

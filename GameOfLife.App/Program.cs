@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GameOfLife.Core.IO;
+using GameOfLife.Core.Rules;
+using System;
 
 namespace GameOfLife.App
 {
@@ -6,7 +8,12 @@ namespace GameOfLife.App
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var gameInputReader = new FileGameInputReader("./gameinput.txt");
+            var gameOutputWriter = new ConsoleGameOutputWriter();
+            var conwaysRule = new ConwaysRule();
+            var conwaysGameOfLife = new GameOfLife(gameInputReader, conwaysRule, gameOutputWriter);
+            conwaysGameOfLife.Run();
+            Console.ReadKey();
         }
     }
 }

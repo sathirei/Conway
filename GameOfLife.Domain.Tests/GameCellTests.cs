@@ -93,7 +93,7 @@ namespace GameOfLife.Domain.Tests
             var result = gameCell.ToString();
 
             // Asserts
-            result.Should().Be("(1, 2)");
+            result.Should().Be("(1,2)");
         }
 
         [Fact()]
