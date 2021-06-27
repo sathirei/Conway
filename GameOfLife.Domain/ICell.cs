@@ -4,7 +4,7 @@ namespace GameOfLife.Domain
 {
     public interface ICell
     {
-        public HashSet<Point> Neighbors { get; }
+        public HashSet<ICell> Neighbors { get; }
         public Point Point { get; }
     }
 }
