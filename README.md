@@ -13,7 +13,7 @@ Any live cell with more than three live neighbours dies (referred to as overpopu
 Any live cell with two or three live neighbours lives, unchanged, to the next generation.
 Any dead cell with exactly three live neighbours will come to life.
 
-The initial pattern constitutes the 'seed' of the system. The first generation is created by applying the above rules simultaneously to every cell in the seed — births and deaths happen simultaneously.
+The initial pattern constitutes the 'seed' of the system. The first generation is created by applying the above rules simultaneously to every cell in the seed â€” births and deaths happen simultaneously.
 In other words, each generation is a pure function of the one before.
 The rules continue to be applied repeatedly to create further generations.
 
@@ -46,7 +46,7 @@ Once the solution is built you can run the following command to run the tests
 ## Run
 To run the project use the following command from command line or set "GameOfLife.App" as the startup project and run it from Visual Studio
 
-`dotnet run
+`dotnet run`
 
 # Improvement points
 Currently the universe is not bounded e.g. (25,25) however this can be implemented easily.
