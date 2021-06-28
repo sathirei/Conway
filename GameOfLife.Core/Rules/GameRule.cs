@@ -4,12 +4,12 @@ namespace GameOfLife.Core.Rules
 {
     public abstract class GameRule : IRule
     {
-        private readonly HashSet<int> nosOfNeighboursForSurvival;
+        private readonly HashSet<int> nosOfLiveNeighboursForSurvival;
         private readonly int noOfLiveNeighboursForBirth;
 
-        public GameRule(HashSet<int> nosOfNeighboursForSurvival, int noOfLiveNeighboursForBirth)
+        public GameRule(HashSet<int> nosOfLiveNeighboursForSurvival, int noOfLiveNeighboursForBirth)
         {
-            this.nosOfNeighboursForSurvival = nosOfNeighboursForSurvival;
+            this.nosOfLiveNeighboursForSurvival = nosOfLiveNeighboursForSurvival;
             this.noOfLiveNeighboursForBirth = noOfLiveNeighboursForBirth;
         }
         public bool IsBorn(int aliveNeighbours)
@@ -19,7 +19,7 @@ namespace GameOfLife.Core.Rules
 
         public bool DoesSurvive(int aliveNeighbours)
         {
-            return nosOfNeighboursForSurvival.Contains(aliveNeighbours);
+            return nosOfLiveNeighboursForSurvival.Contains(aliveNeighbours);
         }
     }
 }

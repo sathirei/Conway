@@ -10,7 +10,7 @@ namespace GameOfLife.Domain
             this.Point = point;
         }
 
-        public Point Point { get; private set; }
+        public Point Point { get; }
 
         public HashSet<ICell> Neighbors => new HashSet<ICell>
             {

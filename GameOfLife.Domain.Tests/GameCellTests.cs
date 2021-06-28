@@ -32,14 +32,14 @@ namespace GameOfLife.Domain.Tests
 
             // Asserts
             result.Should().HaveCount(8);
-            result.Contains(new GameCell(new Point(0, 3)));
-            result.Contains(new GameCell(new Point(1, 3)));
-            result.Contains(new GameCell(new Point(2, 3)));
-            result.Contains(new GameCell(new Point(1, 1)));
-            result.Contains(new GameCell(new Point(1, 3)));
-            result.Contains(new GameCell(new Point(0, 1)));
-            result.Contains(new GameCell(new Point(1, 1)));
-            result.Contains(new GameCell(new Point(2, 1)));
+            result.Contains(new GameCell(new Point(0, 3))).Should().BeTrue();
+            result.Contains(new GameCell(new Point(1, 3))).Should().BeTrue();
+            result.Contains(new GameCell(new Point(2, 3))).Should().BeTrue();
+            result.Contains(new GameCell(new Point(1, 1))).Should().BeTrue();
+            result.Contains(new GameCell(new Point(1, 3))).Should().BeTrue();
+            result.Contains(new GameCell(new Point(0, 1))).Should().BeTrue();
+            result.Contains(new GameCell(new Point(1, 1))).Should().BeTrue();
+            result.Contains(new GameCell(new Point(2, 1))).Should().BeTrue();
         }
 
         [Fact()]

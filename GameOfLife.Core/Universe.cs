@@ -15,12 +15,13 @@ namespace GameOfLife.Core
             this.gameRule = gameRule ?? throw new ArgumentNullException("Game rule has to be set");
             this.LivingCells = initialSeed ?? throw new ArgumentNullException("Game should be seeded with life");
         }
-        public HashSet<ICell> LivingCells { get; private set; }
+        public HashSet<ICell> LivingCells { get; }
 
         public IUniverse Evolve()
         {
             return new Universe(this.gameRule, GetNextGeneration());
         }
+
 
         private HashSet<ICell> GetNextGeneration()
         {
@@ -30,7 +31,7 @@ namespace GameOfLife.Core
         private HashSet<ICell> GetBornCells()
         {
             return this.LivingCells
-                .SelectMany(livingCell => GetDeadNeighbours(livingCell))
+                .SelectMany(GetDeadNeighbours)
                 .Where(deadCell => this.gameRule.IsBorn(GetCountOfLivingNeighbours(deadCell)))
                 .ToHashSet();
         }

@@ -21,9 +21,9 @@ namespace GameOfLife.App
         {
             var (noOfEvolutions, lifeSeed) = gameInputReader.Read();
             IUniverse universe = new Universe(gameRule, lifeSeed);
-            for(int i = 0; i < noOfEvolutions; i++)
+            for(var i = 0; i < noOfEvolutions; i++)
             {
-                // gameOutputWriter.Write(universe); // un-comment this if you want to display the universe after every run
+                //gameOutputWriter.Write(universe); // un-comment this if you want to display the universe after every run
                 universe = universe.Evolve();
             }
             gameOutputWriter.Write(universe);

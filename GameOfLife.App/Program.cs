@@ -1,19 +1,19 @@
 ﻿using GameOfLife.Core.IO;
 using GameOfLife.Core.Rules;
-using System;
+using static System.Console;
 
 namespace GameOfLife.App
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            var gameInputReader = new FileGameInputReader("./gameinput.txt");
-            var gameOutputWriter = new ConsoleGameOutputWriter();
-            var conwaysRule = new ConwaysRule();
-            var conwaysGameOfLife = new GameOfLife(gameInputReader, conwaysRule, gameOutputWriter);
+            IGameInputReader gameInputReader = new FileGameInputReader("./gameinput.txt");
+            IGameOutputWriter gameOutputWriter = new ConsoleGameOutputWriter();
+            IRule conwaysRule = new ConwaysRule();
+            GameOfLife conwaysGameOfLife = new GameOfLife(gameInputReader, conwaysRule, gameOutputWriter);
             conwaysGameOfLife.Run();
-            Console.ReadKey();
+            ReadKey();
         }
     }
 }

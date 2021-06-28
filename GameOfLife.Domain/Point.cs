@@ -9,8 +9,8 @@ namespace GameOfLife.Domain
             this.XPosition = xPosition;
             this.YPosition = yPosition;
         }
-        public int XPosition { get; private set; }
-        public int YPosition { get; private set; }
+        public int XPosition { get; }
+        public int YPosition { get; }
 
         public override bool Equals(object obj)
         {

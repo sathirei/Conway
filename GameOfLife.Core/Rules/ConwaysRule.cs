@@ -6,7 +6,7 @@ namespace GameOfLife.Core.Rules
     {
         public ConwaysRule()
             : base(
-                  nosOfNeighboursForSurvival: new HashSet<int> { 2, 3 },
+                  nosOfLiveNeighboursForSurvival: new HashSet<int> { 2, 3 },
                   noOfLiveNeighboursForBirth: 3)
         {
         }
