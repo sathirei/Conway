@@ -6,6 +6,6 @@ namespace GameOfLife.Core
     public interface IUniverse
     {
         public HashSet<ICell> LivingCells { get; }
-        public IUniverse Evolve();
+        public void Evolve();
     }
 }

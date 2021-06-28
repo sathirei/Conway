@@ -21,26 +21,9 @@ namespace GameOfLife.Core.Tests
             var sut = new Universe(mockRule.Object, lifeSeed);
 
             // Asserts
-            sut.LivingCells.Should().BeEquivalentTo(lifeSeed);
+            sut.Should().NotBeNull();
             mockRule.Verify(x => x.DoesSurvive(It.IsAny<int>()), Times.Never);
             mockRule.Verify(x => x.IsBorn(It.IsAny<int>()), Times.Never);
-        }
-
-        [Fact()]
-        public void Evolve_Should_Return_A_New_Universe()
-        {
-            // Arrange
-            var mockRule = new Mock<IRule>();
-            var lifeSeed = new HashSet<ICell> { new GameCell(new Point(1, 2)) };
-
-            // Act
-            var sut = new Universe(mockRule.Object, lifeSeed);
-            var evolvedUniverse = sut.Evolve();
-
-            // Asserts
-            evolvedUniverse.Should().NotBeEquivalentTo(sut);
-            mockRule.Verify(x => x.DoesSurvive(It.IsAny<int>()), Times.AtLeastOnce);
-            mockRule.Verify(x => x.IsBorn(It.IsAny<int>()), Times.AtLeastOnce);
         }
 
         [Fact()]
@@ -54,11 +37,10 @@ namespace GameOfLife.Core.Tests
 
             // Act
             var sut = new Universe(mockRule.Object, lifeSeed);
-            var evolvedUniverse = sut.Evolve();
+            sut.Evolve();
 
             // Asserts
-            evolvedUniverse.Should().NotBeEquivalentTo(sut);
-            evolvedUniverse.LivingCells.Should().BeEmpty();
+            sut.LivingCells.Should().BeEmpty();
             mockRule.Verify(x => x.DoesSurvive(It.IsAny<int>()), Times.AtLeastOnce);
             mockRule.Verify(x => x.IsBorn(It.IsAny<int>()), Times.AtLeastOnce);
         }
@@ -75,12 +57,11 @@ namespace GameOfLife.Core.Tests
 
             // Act
             var sut = new Universe(mockRule.Object, lifeSeed);
-            var evolvedUniverse = sut.Evolve();
+            sut.Evolve();
 
             // Asserts
-            evolvedUniverse.Should().BeEquivalentTo(sut);
-            evolvedUniverse.LivingCells.Should().HaveCount(1);
-            evolvedUniverse.LivingCells.Single().Should().Be(seed);
+            sut.LivingCells.Should().HaveCount(1);
+            sut.LivingCells.Single().Should().Be(seed);
             mockRule.Verify(x => x.DoesSurvive(It.IsAny<int>()), Times.AtLeastOnce);
             mockRule.Verify(x => x.IsBorn(It.IsAny<int>()), Times.AtLeastOnce);
         }
@@ -97,11 +78,10 @@ namespace GameOfLife.Core.Tests
 
             // Act
             var sut = new Universe(mockRule.Object, lifeSeed);
-            var evolvedUniverse = sut.Evolve();
+            sut.Evolve();
 
             // Asserts
-            evolvedUniverse.Should().NotBeEquivalentTo(sut);
-            evolvedUniverse.LivingCells.Should().HaveCount(9);
+            sut.LivingCells.Should().HaveCount(9);
             mockRule.Verify(x => x.DoesSurvive(It.IsAny<int>()), Times.AtLeastOnce);
             mockRule.Verify(x => x.IsBorn(It.IsAny<int>()), Times.AtLeastOnce);
         }

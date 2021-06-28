@@ -23,8 +23,8 @@ namespace GameOfLife.App
             IUniverse universe = new Universe(gameRule, lifeSeed);
             for(var i = 0; i < noOfEvolutions; i++)
             {
-                //gameOutputWriter.Write(universe); // un-comment this if you want to display the universe after every run
-                universe = universe.Evolve();
+                //gameOutputWriter.Write(@void); // un-comment this if you want to display the @void after every run
+                universe.Evolve();
             }
             gameOutputWriter.Write(universe);
         }

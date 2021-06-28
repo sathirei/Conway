@@ -15,13 +15,12 @@ namespace GameOfLife.Core
             this.gameRule = gameRule ?? throw new ArgumentNullException("Game rule has to be set");
             this.LivingCells = initialSeed ?? throw new ArgumentNullException("Game should be seeded with life");
         }
-        public HashSet<ICell> LivingCells { get; }
+        public HashSet<ICell> LivingCells { get; private set; }
 
-        public IUniverse Evolve()
+        public void Evolve()
         {
-            return new Universe(this.gameRule, GetNextGeneration());
+            this.LivingCells = GetNextGeneration();
         }
-
 
         private HashSet<ICell> GetNextGeneration()
         {
