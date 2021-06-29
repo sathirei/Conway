@@ -45,8 +45,7 @@ namespace GameOfLife.Domain
             }
 
             var to = obj as ICell;
-            return this.Point.Equals(to.Point);
-
+            return this.Point.Equals(to?.Point);
         }
 
         public override int GetHashCode()

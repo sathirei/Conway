@@ -1,9 +1,11 @@
-﻿using GameOfLife.Core.IO;
+﻿using System.Diagnostics.CodeAnalysis;
+using GameOfLife.Core.IO;
 using GameOfLife.Core.Rules;
 using static System.Console;
 
 namespace GameOfLife.App
 {
+    [ExcludeFromCodeCoverage]
     internal class Program
     {
         private static void Main(string[] args)

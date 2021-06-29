@@ -36,7 +36,7 @@ namespace GameOfLife.Domain.Tests
         }
 
         [Fact()]
-        public void Equals_Should_BeFalse_WhenGameCellToCompare_IsNull()
+        public void Equals_Should_BeFalse_PointToCompare_IsNull()
         {
             // Arrange
             var point = new Point(1, 2);
